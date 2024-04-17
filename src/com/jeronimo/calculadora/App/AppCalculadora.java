@@ -16,6 +16,7 @@ public class AppCalculadora {
     public static void main(String[] args) {
         while (true) {
             JCheckBox redondear = new JCheckBox("¿Redondear?");
+            ArrayList<Double> numeros = new ArrayList<>();
             int opcion = JOptionPane.showOptionDialog(null, "¿Que quieres hacer?", "POO - UCO",
                     0, 0, IMAGEN,
                     Arrays.asList("Sumar", "Restar", "Multiplicar", "Dividir", redondear).toArray()
@@ -24,22 +25,25 @@ public class AppCalculadora {
                 System.exit(0);
             }
 
-            double numero1 = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor 1"));
-            double numero2 = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor 2"));
+            int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese lacantidad de valores"));
+            for(int i = 0; i<cantidad; i++){
+                double numero1 = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor :"));
+                numeros.add(numero1);
+            }
             double resultado = 0;
 
             switch (opcion) {
                 case 0:
-                    resultado = Calculadora.sumar(numero1, numero2);
+                    resultado = Calculadora.sumar(numeros);
                     break;
                 case 1:
-                    resultado = Calculadora.restar(numero1, numero2);
+                    resultado = Calculadora.restar(numeros);
                     break;
                 case 2:
-                    resultado = Calculadora.multiplicar(numero1, numero2);
+                    resultado = Calculadora.multiplicar(numeros);
                     break;
                 case 3:
-                    resultado = Calculadora.dividir(numero1, numero2, redondear);
+                    resultado = Calculadora.dividir(numeros, redondear);
                     break;
             }
             mostrarMensaje("El resultado es " + resultado);
