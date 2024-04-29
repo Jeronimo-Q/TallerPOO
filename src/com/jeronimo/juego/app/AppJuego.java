@@ -13,7 +13,7 @@ public class AppJuego {
     public static void main(String[] args) {
         Juego juego = new Juego();
         while(true) {
-            int opcion = JOptionPane.showOptionDialog(null, "Bienvenid@\n¿Que quieres hacer?", "POO-Piedra, Papel o Tijera", 0
+            int opcion = JOptionPane.showOptionDialog(null, "Bienvenid@\n¿Que quieres hacer?", "POO-Piedra, Papel, Navaja o Tijera", 0
                     , 0, IMAGEN, Arrays.asList("Ver instrucciones", "Jugar", "Ver resultados").toArray(), null);
 
             if (opcion == JOptionPane.CLOSED_OPTION) {
@@ -21,12 +21,12 @@ public class AppJuego {
             }
             switch (opcion) {
                 case 0:
-                    mostrarMensaje("Las reglas del juego son:\n\n1) Para jugar debe escoger entre Piedra Papel o Tijera\n2) Las normas son las siguientes :\n *   La piedra le gana a las tijeras pero pierde contra el papel" +
-                            "\n*   Las tijeras le ganan al papel pero pierden contra la piedra\n*   El papel le gana a la piedra pero pierde contra las tijeras");
+                    mostrarMensaje("Las reglas del juego son:\n\n1) Para jugar debe escoger entre Piedra, Papel, Navaja o Tijera\n2) Las normas son las siguientes :\n *   La piedra le gana a las tijeras y a navaja pero pierde contra el papel" +
+                            "\n*   Las tijeras le ganan al papel y navaja pero pierden contra la piedra\n*   El papel le gana a la piedra pero pierde contra las tijeras y navaja\n*   La navaja le gana al papel pero pierde contra las piedra y tijera");
                     break;
                 case 1:
                     String desicion = (String) JOptionPane.showInputDialog(null, "!Juguemos¡\nPor favor selecciona una opcion",
-                            "POO-Piedra, Papel o Tijera", JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Piedra", "Papel", "Tijera"}, null);
+                            "POO-Piedra, Papel , Navaja o Tijera", JOptionPane.QUESTION_MESSAGE, null, new Object[]{"Piedra", "Papel", "Tijera","Navaja"}, null);
                     mostrarMensaje(juego.juego(desicion));
                     break;
                 case 2:
@@ -40,7 +40,7 @@ public class AppJuego {
     }
     private static void mostrarMensaje(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje,
-                "POO - Calculadora", JOptionPane.INFORMATION_MESSAGE);
+                "POO-Piedra, Papel , Navaja o Tijera", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }

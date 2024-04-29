@@ -5,7 +5,7 @@ import com.jeronimo.juego.app.AppJuego;
 import java.util.Random;
 
 public class Juego {
-     String[] opciones = {"Piedra", "Papel", "Tijera"};
+     String[] opciones = {"Piedra", "Papel", "Tijera","Navaja"};
      private int maquina=0;
      private int persona=0;
      private int empates=0;
@@ -23,12 +23,20 @@ public class Juego {
         }
         else if ((desicion.equals("Piedra") && seleccionComputadora.equals("Tijera")) ||
                 (desicion.equals("Papel") && seleccionComputadora.equals("Piedra")) ||
-                (desicion.equals("Tijera") && seleccionComputadora.equals("Papel"))){
+                (desicion.equals("Tijera") && seleccionComputadora.equals("Papel"))||
+                (desicion.equals("Navaja") && seleccionComputadora.equals("Papel"))||
+                (desicion.equals("Piedra") && seleccionComputadora.equals("Navaja"))||
+                (desicion.equals("Tijera") && seleccionComputadora.equals("Navaja"))){
+                if (desicion.equals("Papel")||desicion.equals("Navaja")){
+                    persona++;
+                }
                 persona++;
             String seleccionPC = seleccionComputadora;
             return "Tu seleccionaste:"+desicion+
                     "\nLa computadora selecciono:"+seleccionComputadora+"\nHaz ganado";
         } else
+            if (seleccionComputadora.equals("Papel")||seleccionComputadora.equals("Navaja")){
+                maquina++;}
             maquina++;
             return "Tu seleccionaste:"+desicion+
                     "\nLa computadora selecciono:"+seleccionComputadora+"\nPerdiste";

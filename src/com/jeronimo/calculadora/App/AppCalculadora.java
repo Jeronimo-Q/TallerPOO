@@ -19,13 +19,13 @@ public class AppCalculadora {
             ArrayList<Double> numeros = new ArrayList<>();
             int opcion = JOptionPane.showOptionDialog(null, "¿Que quieres hacer?", "POO - UCO",
                     0, 0, IMAGEN,
-                    Arrays.asList("Sumar", "Restar", "Multiplicar", "Dividir", redondear).toArray()
+                    Arrays.asList("Sumar", "Restar", "Multiplicar", "Dividir","Promedio", redondear).toArray()
                     , null);
             if (opcion == JOptionPane.CLOSED_OPTION) {
                 System.exit(0);
             }
 
-            int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese lacantidad de valores"));
+            int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de valores"));
             for(int i = 0; i<cantidad; i++){
                 double numero1 = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor :"));
                 numeros.add(numero1);
@@ -45,6 +45,8 @@ public class AppCalculadora {
                 case 3:
                     resultado = Calculadora.dividir(numeros, redondear);
                     break;
+                case 4:
+                    resultado = Calculadora.promedio(numeros,redondear);
             }
             mostrarMensaje("El resultado es " + resultado);
         }

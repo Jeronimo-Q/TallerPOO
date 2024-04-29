@@ -39,4 +39,12 @@ public class Calculadora {
         }
         return resultado;
     }
+    public static double promedio(ArrayList<Double>numeros,JCheckBox redondear){
+        double resultado = sumar(numeros);
+        resultado = resultado/ numeros.size();
+        if (redondear.isSelected()) {
+            resultado = Math.round(resultado);
+        }
+        return resultado;
+    }
 }
